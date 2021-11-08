@@ -33,7 +33,7 @@ function draw() {
 
             let t = board[i][j].text
             let textSize = `text-align: center; font-size: ${cellSize / 7}px; direction: rtl;`
-            createP(t).position(i * cellSize, j * cellSize).size(cellSize).style(textSize)
+            createP(t).position(i * cellSize, j * cellSize).size(cellSize).style(textSize).class("noselect")
         }
     }
 }
