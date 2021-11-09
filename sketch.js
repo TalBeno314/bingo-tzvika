@@ -11,6 +11,7 @@ function setup() {
     createCanvas(d, d);
 
     board = generateBoard();
+    frameRate(60);
 }
 
 function draw() {
@@ -36,14 +37,17 @@ function draw() {
             createP(t).position(i * cellSize, j * cellSize).size(cellSize).style(textSize).class("noselect")
         }
     }
+    noLoop();
 }
 
-function mouseClicked() {
+function mousePressed() {
     let i = floor(mouseX / cellSize);
     let j = floor(mouseY / cellSize);
 
     board[i][j].selected = !board[i][j].selected;
     console.log(board[i][j]);
+
+    loop();
 }
 
 function generateBoard() {
