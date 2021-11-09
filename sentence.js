@@ -16,7 +16,12 @@ const sentence = [
     new Sentence("יש לי חבר שהוא"),
     new Sentence("חתונות אזרחיות"),
     new Sentence("בן גביר"),
-    new Sentence("הסתכלתי לו בלבן של העיניים!!")
+    new Sentence("הסתכלתי לו בלבן של העיניים!!"),
+    new Sentence("י'1"),
+    new Sentence("ביבי"),
+    new Sentence("מאה שערים"),
+    new Sentence("אתה לא מבין שאני מדבר"),
+    new Sentence("לרצוח את כל הערבים זה לא פרקטי, צריך להשאיר כמה")
 ];
 
 let queue = [];
