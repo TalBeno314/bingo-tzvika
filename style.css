@@ -2,17 +2,32 @@ html,
 body {
     margin: 0;
     padding: 0;
-}
-
-canvas {
-    display: block;
-}
-
-.noselect {
+    background-color: white;
+    font-family: Arial;
+    font-weight: bold;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+canvas {
+    display: block;
+}
+
+td {
+    border: 4px solid;
+}
+
+table,
+tr,
+td {
+    border-spacing: 0px;
+    background-color: white;
+}
+
+.bg {
+    background-image: rgba(0, 0, 0, 0.78) url('https://i.imgur.com/s3d1Zrb.png');
 }

@@ -1,71 +1,58 @@
-let board, d, size, cellSize;
-let selected;
-
-function preload() {
-    selected = loadImage('https://i.imgur.com/s3d1Zrb.png');
-}
+let board, d, size, cellSize, selected, style; //L
+let background;
 
 function setup() {
-    d = Math.min(windowHeight, windowWidth);
-    size = floor(sqrt(sentence.length));
-    createCanvas(d, d);
+    d = 0.94 * Math.min(windowHeight, windowWidth);
+    size = floor(sqrt(16));
+    cellSize = floor(d / size);
+    background = `background-size: ${cellSize}px; background-image: url('https://i.imgur.com/Z5cFDQv.png');`;
 
     board = generateBoard();
-}
 
-function draw() {
-    background(255);
-    cellSize = d / size;
-    rectMode(CORNERS)
-
-    for (let i = 0; i <= size; i++) {
-        strokeWeight(6);
-        line(0, i * d / size, d, i * d / size);
-        line(i * d / size, 0, i * d / size, d);
-    }
-
+    let table = createElement("table").position(0, 0).size(d, d);
+    //I
     for (let i = 0; i < size; i++) {
+        let row = createElement("tr");
         for (let j = 0; j < size; j++) {
-            if (board[i][j].selected) {
-                tint(255, 200);
-                image(selected, i * cellSize, j * cellSize, cellSize, cellSize);
-            }
-
-            let t = board[i][j].text
-            let textSize = `text-align: center; font-size: ${cellSize / 7}px; direction: rtl;`
-            createP(t).position(i * cellSize, j * cellSize).size(cellSize).style(textSize).class("noselect")
+            style = `text-align: center; font-size: ${cellSize / 6}px; direction: rtl; color: black;`;
+            //I
+            let cell = createElement("td", board[i][j].text).style(style).size(cellSize, cellSize).id(`${i} ${j}`); //S
+            cell.parent(row);
         }
+
+        row.parent(table);
     }
 }
 
 function mouseClicked() {
-    let i = floor(mouseX / cellSize);
-    let j = floor(mouseY / cellSize);
+    let i = floor(mouseY / cellSize); //U
+    let j = floor(mouseX / cellSize);
+
+    let cell = document.getElementById(`${i} ${j}`); //B
 
     board[i][j].selected = !board[i][j].selected;
-    console.log(board[i][j]);
+
+    if (board[i][j].selected) {
+        cell.style = style + background; //X
+    } else {
+        cell.style = style;
+    }
 }
+
+//M
 
 function generateBoard() {
     let board1 = Array(size);
     let tempSentence = sentence;
 
     for (let i = 0; i < size; i++) {
-        board1[i] = Array(size);
+        board1[i] = Array(size); //A
         for (let j = 0; j < size; j++) {
             let r = floor(random(0, tempSentence.length));
-            board1[i][j] = sentence[r];
+            board1[i][j] = sentence[r]; //E
             tempSentence.splice(r, 1);
         }
     }
 
     return board1
-}
-
-function checkBingo() {
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-
-        }
-    }
 }
