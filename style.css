@@ -25,9 +25,9 @@ table,
 tr,
 td {
     border-spacing: 0px;
-    background-color: white;
 }
 
-.bg {
-    background-image: rgba(0, 0, 0, 0.78) url('https://i.imgur.com/s3d1Zrb.png');
+table {
+    background-size: 100%;
+    background-image: url('https://i.imgur.com/Ll2LqIn.jpg');
 }

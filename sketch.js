@@ -5,7 +5,7 @@ function setup() {
     d = 0.94 * Math.min(windowHeight, windowWidth);
     size = floor(sqrt(16));
     cellSize = floor(d / size);
-    background = `background-size: ${cellSize}px; background-image: url('https://i.imgur.com/Z5cFDQv.png');`;
+    background = `background-size: ${cellSize}px; background-image: url('https://i.imgur.com/s3d1Zrb.png');`;
 
     board = generateBoard();
 
@@ -14,7 +14,7 @@ function setup() {
     for (let i = 0; i < size; i++) {
         let row = createElement("tr");
         for (let j = 0; j < size; j++) {
-            style = `text-align: center; font-size: ${cellSize / 6}px; direction: rtl; color: black;`;
+            style = `text-align: center; font-size: ${cellSize / 6}px; direction: rtl; color: white; border-color: black;`;
             //I
             let cell = createElement("td", board[i][j].text).style(style).size(cellSize, cellSize).id(`${i} ${j}`); //S
             cell.parent(row);
