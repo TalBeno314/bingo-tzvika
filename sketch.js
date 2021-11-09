@@ -40,7 +40,7 @@ function draw() {
     noLoop();
 }
 
-function mousePressed() {
+function mouseClicked() {
     let i = floor(mouseX / cellSize);
     let j = floor(mouseY / cellSize);
 
